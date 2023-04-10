@@ -1,34 +1,48 @@
 import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 import React from 'react';
 import {Neomorph} from 'react-native-neomorph-shadows';
-const Width = Dimensions.get('window').width;
+import {banner} from '../styles';
 
-const Banner = () => {
+const Banner = ({
+  ShadowRadius,
+  ShadowOpacity,
+  BorderRadius,
+  Padding,
+  BackgroundColor,
+  Height,
+  AlignItems,
+  JustifyContent,
+  AlignSelf,
+  Margin,
+  Width,
+}) => {
   return (
     <Neomorph
-      inner // <- enable shadow inside of neomorph
+      // inner // <- enable shadow inside of neomorph
       swapShadows // <- change zIndex of each shadow color
       darkShadowColor="grey"
       lightShadowColor="#fff"
       style={{
-        shadowRadius: 2,
-        shadowOpacity: 2,
-        borderRadius: 10,
-        margin: 10,
-        padding: 10,
-        backgroundColor: '#e0dedf',
-        width: Width - 20,
-        height: 150,
-        alignItems: 'center',
-        justifyContent: 'center',
-        alignSelf: 'center',
+        shadowRadius: ShadowRadius,
+        shadowOpacity: ShadowOpacity,
+        borderRadius: BorderRadius,
+        padding: Padding,
+        backgroundColor: BackgroundColor,
+        height: Height,
+        alignItems: AlignItems,
+        justifyContent: JustifyContent,
+        alignSelf: AlignSelf,
+        margin: Margin,
+        width: Width,
       }}>
       <Image
-        source={require('../assets/banner2.jpg')}
+        source={{
+          uri: 'https://img.icons8.com/external-prettycons-lineal-prettycons/512/external-gallery-multimedia-prettycons-lineal-prettycons.png',
+        }}
         style={{
-          height: '100%',
-          width: '100%',
-          borderRadius: 10,
+          height: '90%',
+          width: '90%',
+          tintColor: 'grey',
         }}
         resizeMode={'contain'}
       />

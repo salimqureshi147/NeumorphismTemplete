@@ -3,10 +3,10 @@ import React from 'react';
 import {Data} from '../data/Data';
 import {Neomorph} from 'react-native-neomorph-shadows';
 import SquareIconField from '../components/SquareIconField';
+import Threeway from '../components/Threeway';
 import Banner from '../components/Banner';
-import Threedots from '../components/Threedots';
 const Width = Dimensions.get('window').width;
-const Login = () => {
+const UniversalStyles = () => {
   const category = ({item}) => {
     return (
       <View
@@ -17,7 +17,7 @@ const Login = () => {
           alignItems: 'center',
         }}>
         <Neomorph
-          inner // <- enable shadow inside of neomorph
+          // inner // <- enable shadow inside of neomorph
           swapShadows // <- change zIndex of each shadow color
           darkShadowColor="grey"
           lightShadowColor="#fff"
@@ -35,21 +35,21 @@ const Login = () => {
           <Image
             source={item.img}
             style={{
-              height: 50,
-              width: 50,
-              borderRadius: 25,
+              height: 30,
+              width: 30,
               alignSelf: 'center',
+              tintColor: 'grey',
             }}
             resizeMode={'contain'}
           />
         </Neomorph>
-        <Text>{item.name}</Text>
+        <Text style={{color: 'grey'}}>{item.name}</Text>
       </View>
     );
   };
   return (
-    <View style={{flex: 1, backgroundColor: '#e0dedf'}}>
-      <View style={{}}>
+    <View style={{flex: 1, backgroundColor: '#e0dedf', paddingVertical: 15}}>
+      <View style={{padding: 2}}>
         <FlatList
           renderItem={category}
           horizontal
@@ -57,8 +57,34 @@ const Login = () => {
           showsHorizontalScrollIndicator={false}
         />
       </View>
-      <Banner />
+      {/* <Insertbanner /> */}
+      <Banner
+        Height={150}
+        Width={Width - 20}
+        AlignItems={'center'}
+        JustifyContent={'center'}
+        AlignSelf={'center'}
+        Margin={10}
+        ShadowRadius={2}
+        ShadowOpacity={2}
+        BorderRadius={10}
+        Padding={10}
+        BackgroundColor={'#e0dedf'}
+      />
       <SquareIconField
+        Height={60}
+        Width={'100%'}
+        FieldWidth={'60%'}
+        AlignSelf={'center'}
+        PlaceHolderText={'Search...'}
+        TextSize={14}
+        PlaceHolderTextColor={'gray'}
+        InputTextColor={'#000'}
+        IconTintColor={'gray'}
+        RightIcon={require('../assets/search.png')}
+        yAxisPadding={0}
+      />
+      <Threeway
         HeightSize={60}
         WidthSize={'100%'}
         Self={'center'}
@@ -68,54 +94,10 @@ const Login = () => {
         InputTextColor={'#000'}
         LeftImageTintcolor={'gray'}
         RightImageTintColor={'gray'}
-        RightImage={require('../assets/search.png')}
         yAxisPadding={0}
       />
-      <View
-        style={{
-          height: 100,
-          width: '95%',
-          alignSelf: 'center',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexDirection: 'row',
-        }}>
-        <Neomorph
-          inner // <- enable shadow inside of neomorph
-          swapShadows // <- change zIndex of each shadow color
-          darkShadowColor="grey"
-          lightShadowColor="#fff"
-          style={{
-            shadowRadius: 2,
-            shadowOpacity: 2,
-            borderRadius: 40,
-            backgroundColor: '#e0dedf',
-            width: 65,
-            height: 65,
-            alignItems: 'center',
-            justifyContent: 'center',
-            alignSelf: 'center',
-          }}>
-          <Image
-            source={{
-              uri: 'https://img.icons8.com/external-flatart-icons-outline-flatarticons/512/external-laptop-project-planing-flatart-icons-outline-flatarticons.png',
-            }}
-            style={{
-              height: 30,
-              width: 30,
-              borderRadius: 25,
-              alignSelf: 'center',
-              tintColor: 'grey',
-            }}
-            resizeMode={'contain'}
-          />
-        </Neomorph>
-        <Text>Laptop</Text>
-        <Threedots />
-      </View>
-      <Banner />
     </View>
   );
 };
 
-export default Login;
+export default UniversalStyles;

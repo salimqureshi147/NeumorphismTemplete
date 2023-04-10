@@ -12,10 +12,8 @@ import {Neomorph} from 'react-native-neomorph-shadows';
 const Dwidth = Dimensions.get('window').width;
 const percentWidth = Dimensions.get('window').width - 80;
 const SquareIconField = ({
-  LeftImage,
-  RightImage,
-  Self,
-  WidthSize,
+  AlignSelf,
+  FieldWidth,
   PlaceHolderText,
   InputTextColor,
   PlaceHolderTextColor,
@@ -35,14 +33,14 @@ const SquareIconField = ({
       }}>
       <Neomorph
         swapShadows
-        inner
+        // inner
         // <-- This is important for the shadow to be inside the button
         darkShadowColor="grey"
         lightShadowColor="#fff"
         style={{
           borderRadius: 15,
-          width: Dwidth - 110,
-          height: 65,
+          width: Dwidth - 100,
+          height: 55,
           shadowRadius: 2,
           shadowOpacity: 2,
           padding: 15,
@@ -57,8 +55,8 @@ const SquareIconField = ({
           placeholder={PlaceHolderText}
           placeholderTextColor={PlaceHolderTextColor}
           style={{
-            width: LeftImage ? percentWidth : WidthSize,
-            alignSelf: Self,
+            width: FieldWidth,
+            alignSelf: AlignSelf,
             fontSize: TextSize,
             color: InputTextColor,
             paddingVertical: yAxisPadding,
@@ -69,7 +67,7 @@ const SquareIconField = ({
       </Neomorph>
       <TouchableOpacity>
         <Neomorph
-          inner // <- enable shadow inside of neomorph
+          // inner // <- enable shadow inside of neomorph
           swapShadows // <- change zIndex of each shadow color
           darkShadowColor="grey"
           lightShadowColor="#fff"
@@ -78,8 +76,8 @@ const SquareIconField = ({
             shadowOpacity: 2,
             borderRadius: 15,
             backgroundColor: '#e0dedf',
-            width: 65,
-            height: 65,
+            width: 55,
+            height: 55,
             alignItems: 'center',
             justifyContent: 'center',
             alignSelf: 'center',
